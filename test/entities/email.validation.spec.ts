@@ -10,4 +10,9 @@ describe('Email validation', () => {
     const email = 'any@mail.com';
     expect(Email.validate(email)).toBeTruthy();
   });
+
+  test('should not accept email without @', () => {
+    const email = 'anymail.com';
+    expect(Email.validate(email)).toBeFalsy();
+  });
 });
