@@ -1,4 +1,4 @@
-import { UserData } from 'usecases/register-user-on-mailing-list/ports';
+import { UserData } from 'entities';
 
 export interface UserRepository {
   add(user: UserData): Promise<void>;

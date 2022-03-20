@@ -1,4 +1,4 @@
-import { UserData } from '../../../../src/usecases/register-user-on-mailing-list/ports';
+import { UserData } from '../../../../src/entities';
 import { InMemoryUserRepository } from '../../../../src/usecases/register-user-on-mailing-list/repository';
 
 describe('In memory User Repository', () => {
