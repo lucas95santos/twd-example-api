@@ -14,6 +14,9 @@ export class Email {
     // check if email local part is smaller or equal than 64 chars
     if (localPart.length > 64) return false;
 
+    // check if email domain is empty
+    if (!domain) return false;
+
     // check if email domain is smaller or equal than 255 chars
     if (domain.length > 255) return false;
 
