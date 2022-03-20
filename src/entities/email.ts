@@ -1,3 +1,6 @@
+const EMAIL_FORMAT =
+  /^[-!#$%&'*+/0-9=?A-Z^_a-z`{|}~](\.?[-!#$%&'*+/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/;
+
 export class Email {
   static validate(email: string): boolean {
     // check if email is empty
@@ -19,6 +22,9 @@ export class Email {
 
     // check if email length is smaller or equal than 320 chars
     if (email.length > 320) return false;
+
+    // check email valid chars
+    if (!EMAIL_FORMAT.test(email)) return false;
 
     return true;
   }
