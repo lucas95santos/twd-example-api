@@ -6,9 +6,6 @@ export class Email {
     // check if email is empty
     if (!email) return false;
 
-    // check if email contain @ char
-    if (!email.includes('@')) return false;
-
     const [localPart, domain] = email.split('@');
 
     // check email local part
