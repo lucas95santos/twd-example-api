@@ -5,7 +5,7 @@ export class User {
   static create(user: UserData): Either<InvalidEmailError, UserData> {
     const emailOrError = Email.create(user.email);
 
-    if (emailOrError.isLeft()) return left(new InvalidEmailError());
+    if (emailOrError.isLeft()) return left(emailOrError.value);
 
     return right(user);
   }

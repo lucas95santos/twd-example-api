@@ -9,6 +9,6 @@ describe('User domain entity', () => {
     };
 
     const error = User.create(newUser);
-    expect(error).toEqual(left(new InvalidEmailError()));
+    expect(error).toEqual(left(new InvalidEmailError('invalid_mail')));
   });
 });
