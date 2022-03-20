@@ -8,6 +8,9 @@ export class Email {
 
     const [localPart, domain] = email.split('@');
 
+    // check if email local part is empty
+    if (!localPart) return false;
+
     // check if email local part is smaller or equal than 64 chars
     if (localPart.length > 64) return false;
 
