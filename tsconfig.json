@@ -3,7 +3,15 @@
     "outDir": "./dist",
     "target": "es2019",
     "module": "commonjs",
+    "moduleResolution": "node",
+    "strict": true,
+    "strictPropertyInitialization": false,
     "esModuleInterop": true,
-    "allowJs": true
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "baseUrl": "./src/"
   }
 }
