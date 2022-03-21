@@ -1,4 +1,3 @@
-import { left } from '../../src/shared';
 import { UserData, User } from '../../src/entities';
 
 describe('User domain entity', () => {
