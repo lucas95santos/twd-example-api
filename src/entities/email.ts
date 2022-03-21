@@ -1,5 +1,5 @@
-import { Either, right, left } from '../shared';
-import { InvalidEmailError } from './errors';
+import { Either, right, left } from '@/shared';
+import { InvalidEmailError } from '@/entities/errors';
 
 const EMAIL_FORMAT =
   /^[-!#$%&'*+/0-9=?A-Z^_a-z`{|}~](\.?[-!#$%&'*+/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/;
