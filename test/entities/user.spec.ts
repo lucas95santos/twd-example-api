@@ -1,10 +1,5 @@
 import { left } from '../../src/shared';
-import {
-  UserData,
-  User,
-  InvalidEmailError,
-  InvalidNameError,
-} from '../../src/entities';
+import { UserData, User } from '../../src/entities';
 
 describe('User domain entity', () => {
   test('should not create user with invalid e-mail address', () => {
@@ -13,8 +8,9 @@ describe('User domain entity', () => {
       name: 'any_name',
     };
 
-    const error = User.create(newUser);
-    expect(error).toEqual(left(new InvalidEmailError(newUser.email)));
+    const error = User.create(newUser).value as Error;
+    expect(error.name).toBe('InvalidEmailError');
+    expect(error.message).toEqual('Invalid email: ' + newUser.email + '.');
   });
 
   test('should not create user with invalid name (too few characters)', () => {
@@ -23,8 +19,9 @@ describe('User domain entity', () => {
       name: 'O      ',
     };
 
-    const error = User.create(newUser);
-    expect(error).toEqual(left(new InvalidNameError(newUser.name)));
+    const error = User.create(newUser).value as Error;
+    expect(error.name).toBe('InvalidNameError');
+    expect(error.message).toEqual('Invalid name: ' + newUser.name + '.');
   });
 
   test('should not create user with invalid name (too many characters)', () => {
@@ -33,8 +30,9 @@ describe('User domain entity', () => {
       name: 'O'.repeat(257),
     };
 
-    const error = User.create(newUser);
-    expect(error).toEqual(left(new InvalidNameError(newUser.name)));
+    const error = User.create(newUser).value as Error;
+    expect(error.name).toBe('InvalidNameError');
+    expect(error.message).toEqual('Invalid name: ' + newUser.name + '.');
   });
 
   test('should create user with valid data', () => {
