@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose --noStackTrace --runInBand --coverage=false",
+    "test": "jest --verbose --noStackTrace --runInBand --coverage=false --passWithNoTests",
+    "test-unit": "npm test -- --watch -c jest-unit-config.js",
+    "test-integration": "npm test -- --watch -c jest-integration-config.js",
+    "test-staged": "npm test -- --findRelatedTests",
+    "test-ci": "npm test -- --coverage",
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules ./src/usecases/register-user-on-mailing-list/index.ts",
     "start": "ts-node --transpile-only ./src/usecases/register-user-on-mailing-list/index.ts"
   },
